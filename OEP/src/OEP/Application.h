@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
 
 namespace oep
 {
@@ -8,14 +9,8 @@ namespace oep
 	class OEP_API Application
 	{
 	public:
-		Application()
-		{
-
-		}
-		virtual ~Application()
-		{
-
-		}
+		Application();
+		virtual ~Application();
 
 		void Run();
 

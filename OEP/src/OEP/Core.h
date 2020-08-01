@@ -9,3 +9,5 @@
 #else 
 	#error OEP only supports Windows!
 #endif
+
+#define BT(x) (1 << x)
