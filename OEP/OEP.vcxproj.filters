@@ -7,6 +7,18 @@
     <Filter Include="OEP\Events">
       <UniqueIdentifier>{ED4F837A-D907-C5C7-420F-9E232EE65FB8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OEP\ImGui">
+      <UniqueIdentifier>{133C7D13-7FA6-318A-C8E4-E22F348E0FDF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\OEP.h" />
@@ -31,8 +43,26 @@
     <ClInclude Include="src\OEP\Events\MouseEvent.h">
       <Filter>OEP\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\OEP\ImGui\ImGuiLayer.h">
+      <Filter>OEP\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OEP\Layer.h">
+      <Filter>OEP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OEP\LayerStack.h">
+      <Filter>OEP</Filter>
+    </ClInclude>
     <ClInclude Include="src\OEP\Log.h">
       <Filter>OEP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OEP\Window.h">
+      <Filter>OEP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\oeppch.h" />
   </ItemGroup>
@@ -40,8 +70,23 @@
     <ClCompile Include="src\OEP\Application.cpp">
       <Filter>OEP</Filter>
     </ClCompile>
+    <ClCompile Include="src\OEP\ImGui\ImGuiLayer.cpp">
+      <Filter>OEP\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OEP\Layer.cpp">
+      <Filter>OEP</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OEP\LayerStack.cpp">
+      <Filter>OEP</Filter>
+    </ClCompile>
     <ClCompile Include="src\OEP\Log.cpp">
       <Filter>OEP</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\oeppch.cpp" />
   </ItemGroup>

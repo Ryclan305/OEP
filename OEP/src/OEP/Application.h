@@ -2,6 +2,10 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "OEP/Events/ApplicationEvent.h"
+#include "OEP/LayerStack.h"
+
+#include "Window.h"
 
 namespace oep
 {
@@ -12,10 +16,22 @@ namespace oep
 		Application();
 		virtual ~Application();
 
-		void Run();
+		void Run(); 
 
-		//To be defined in a client
+		void OnEvent(Event& e);
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 
+		inline static Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_Window; }
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
+		LayerStack m_LayerStack;
+	private:
+		static Application* s_Instance;
 	};
 
 	Application* CreateApplication();

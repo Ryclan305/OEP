@@ -10,6 +10,16 @@ workspace "OEP"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "OEP/vendor/GLFW/include"
+IncludeDir["Glad"] = "OEP/vendor/Glad/include"
+IncludeDir["ImGui"] = "OEP/vendor/imgui"
+
+include "OEP/vendor/GLFW"
+include "OEP/vendor/Glad"
+include "OEP/vendor/imgui"
+
 project "OEP"
 	location "OEP"
 	kind "SharedLib"
@@ -30,7 +40,18 @@ project "OEP"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib",
+		"Glad",
+		"ImGui"
 	}
 
 	filter "system:windows"
@@ -41,7 +62,8 @@ project "OEP"
 	    defines
 		{
 			"OEP_BUILD_DLL",
-			"OEP_PLATFORM_WINDOWS"	
+			"OEP_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -51,13 +73,18 @@ project "OEP"
 
 	filter "configurations:Debug"
 		defines "OEP_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
+
     filter "configurations:Release"
 		defines "OEP_RELEASE"
-		symbols "On"
+		buildoptions "/MD"
+		optimize "On"
+
 	filter "configurations:Dist"
 		defines "OEP_DIST"
-		symbols "On"
+		buildoptions "/MD"
+		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
@@ -96,10 +123,13 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "OEP_DEBUG"
-		symbols "On"
+		buildoptions "/MDd"
+		optimize "On"
     filter "configurations:Release"
 		defines "OEP_RELEASE"
-		symbols "On"
+		buildoptions "/MD"
+		optimize "On"
 	filter "configurations:Dist"
 		defines "OEP_DIST"
-		symbols "On"
+		buildoptions "/MD"
+		optimize "On"

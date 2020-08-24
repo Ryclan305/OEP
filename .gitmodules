@@ -1,3 +1,9 @@
 [submodule "OEP/vendor/spdlog"]
 	path = OEP/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "OEP/vendor/GLFW"]
+	path = OEP/vendor/GLFW
+	url = https://github.com/TheCherno/GLFW
+[submodule "OEP/vendor/imgui"]
+	path = OEP/vendor/imgui
+	url = https://github.com/TheCherno/imgui
